@@ -221,3 +221,35 @@ addEventListener()
     }
 
     let timerId = setInterval(moveBubble, 1000)
+
+/* Classes in JS
+    Notes: Classes are the templates for creating functions.
+    Functions inside these classes are called methods. */
+
+    // Class declaration
+
+    class Rectangle {
+        // creating an instance of rectangle will require 2 
+        // arguments
+        constructor(height, width) {
+            this.height = height;
+            this.width = width;
+        }
+    }
+
+    // making a new rectangle, with 300 height, 100 width
+    const myRectangle = new Rectangle(300, 100)
+    console.log(myRectangle.height)
+
+    // Another example
+    class Ghost{
+        constructor(className, speed, color, startingPoint) {
+            this.className = className;
+            this.speed = speed;
+            this.color = color;
+            this.startingPoint = startingPoint;
+        }
+    }
+
+    const blinky = new Ghost('Blinky', 300, 'blue', 4)
+    const bonky = new Ghost('Bonky', 200, 'red', 10)
