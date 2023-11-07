@@ -42,4 +42,52 @@ if (num % 15 === 0 && num % 3 === 0) {
     return 'buzz'
 }
 
+/* refresher, .concat() is used to merge two or more arrays
+or strings together.
+    From memory though, you can also merge two arrays using
+    the spread method.
 
+.map()
+    Creates a NEW array, similar to forEach() however, it
+    only console.log() them out, it DOESN'T store in new 
+    array.
+
+    const ages2023 = [21, 45, 18, 45, 2]
+
+    const ages2026 = ages2023.map(age => age + 3)
+
+    console.log(ages2026)
+
+    
+addEventListener()
+    Sets up a function that will be called whenever the
+    specified element is delivered to the target. This 
+    example, calls the function alertMe which console.logs
+    'clicked' when the hexagon is clicked
+
+    target.addEventListener(event, function)
+    */
+
+    const hexagon = document.getElementById('hexagon')
+
+    function alertMe () {
+        console.log('clicked')
+    }
+
+    hexagon.addEventListener('click', alertMe)
+
+// remove EventListener
+
+    const circle = document.querySelector('.circle')
+
+    function toggleColor() {
+        circle.classList.toggle('red-circle')
+    }
+
+    circle.addEventListener('click', toggleColor)
+
+// .querySelector()
+/*  Returns the first element within the document that 
+    matches the specified selector
+
+    document.querySelector('div')
