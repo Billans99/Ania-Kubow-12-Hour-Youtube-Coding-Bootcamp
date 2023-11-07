@@ -65,6 +65,9 @@ addEventListener()
     example, calls the function alertMe which console.logs
     'clicked' when the hexagon is clicked
 
+    In laymans terms, make it do something when something
+    happens, like on click, mouseover, etc.
+
     target.addEventListener(event, function)
     */
 
@@ -88,6 +91,133 @@ addEventListener()
 
 // .querySelector()
 /*  Returns the first element within the document that 
-    matches the specified selector
+    matches the specified selector.
 
-    document.querySelector('div')
+    For example you could write:
+        const firstDiv = document.querySelector('div')
+    to select the first div in the document. You can also
+    select classes AND Id's such as .circle and #main in 
+    the examples below.
+    */
+    const circle = document.querySelector('.circle')
+
+    const main = document.querySelector('#main')
+
+/* .querySelectorAll()
+   To pick out all classes with .circle
+    */
+   const circle = document.querySelectorAll('.circle')
+
+    // Date
+    // Here's how to get today's date
+
+    const today = new Date()
+    console.log(today)
+
+    const date = today.getDate() // get the date
+
+    const day = today.getDay() // the day of the week
+
+    const fullYear = today.getFullYear() // current year
+
+    const hours = today.getHours() // get hours in 24 hr time
+
+    const isoString = today.toISOString() // alpha numeric (good for API's for a timestamp)
+
+/* setTimeout() 
+    calls a function or evaluates an expression after a 
+    number of milliseconds has passed.
+
+    setTimeout(function, milliseconds)
+
+    3000 is used for 3 seconds as we are counting in 
+    milliseconds. We are going to create a timing to display
+    text in the speech bubble after 3 seconds */
+
+    const speechBubble = document.querySelector('.bubble')
+
+    const time = 3000
+
+    function showText() {
+        speechBubble.innerHTML = 'Hey dude!'
+    }
+
+    setTimeout(showText, time)
+
+    // After 3 second, make the whole thing disappear
+
+    function deleteText() {
+        speechBubble.innerHTML = ""
+    }
+
+    setTimeout(deleteText, 10000)
+
+    /* exercise to do myself, do a setTimeout() to get
+    rid of the whole speech bubble after 5 seconds */
+
+    const speechBubble = document.querySelector('.bubble')
+
+    // time 5000 milliseconds for 5 seconds
+    const time = 5000
+
+    function removeBubble() {
+        removeBubble.style.display = 'none'
+    }
+
+    setTimeout(removeBubble, time)
+
+/* setInterval()
+    Calls a function at specifed intervals until the 
+    window is closed. Below is how to add 'Alert!' every
+    2 seconds onto the screen */
+
+    // setInterval(function, milliseconds)
+    const bubble = querySelector('.bubble')
+    const text = 'Alert!'
+    const time = 2000
+    
+    function showAlert() {
+        const textDisplay = document.createElement('div')
+        textDisplay.innerHTML = text
+        bubble.appendChild(textDisplay)
+    }
+
+    setInterval(showAlert, time)
+
+    /* exercise to do myself. Using setInterval(), print 
+    in console.log your name. */
+
+    function displayName() {
+        console.log('Billy')
+    }
+
+    setInterval(displayName, 2000)
+
+// clearInterval()
+    // give the function call a variable, then call 
+    // clearInterval() with that variable name
+     function displayName() {
+        console.log('Billy')
+    }
+
+    const timerId = setInterval(displayName, 2000)
+
+    console.log(timerId)
+
+    clearInterval(timerId)
+
+    // Here's a real life example, move the speech bubble 
+    // down
+
+    document.querySelector('.speech-bubble')
+    let height = 100;
+
+    function moveBubble() {
+        height += 50
+        speechBubble.style.top = height + 'px'
+        if (height === 300) {
+            clearInterval(timerId)
+        }
+    }
+
+    let timerId = setInterval(moveBubble, 1000)
