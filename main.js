@@ -7,40 +7,39 @@
 // word buzz.
 // Numbers divisible by 15 become fizz buzz.
 
-/* Here's how I would originally write the psueodocode in 
-my head, with my first initial thoughts on the problem. 
-However, I realise that there are cases when the number
-is divisible by 15 and 3 (or 5) together, but the code 
-will stop executing after the first line of the if 
-statement. 
-*/
-if (number divisible by 3) {
-    write 'fizz'
-} else if (number divisible by 5) {
-    write 'buzz'
-} else if (number divisible by 15) {
-    write 'fizz buzz'
-} else if (number is divisible by 15 && 3) {
-    write 'fizz buzz'
-} else if (number is divisible by 15 && 5) {
-    write 'fizz buzz'
-}
+    /* Here's how I would originally write the psueodocode in 
+    However, I realise that there are cases when the number
+    is divisible by 15 and 3 (or 5) together, but the code 
+    will stop executing after the first line of the if 
+    statement. 
+    */
+        if (number divisible by 3) {
+            write 'fizz'
+        } else if (number divisible by 5) {
+            write 'buzz'
+        } else if (number divisible by 15) {
+            write 'fizz buzz'
+        } else if (number is divisible by 15 && 3) {
+            write 'fizz buzz'
+        } else if (number is divisible by 15 && 5) {
+            write 'fizz buzz'
+        }
 
 /* I changed the order of the if statement so that
 divisible by 15 and 3, and 15 and 5 are checked first */
 
 
-if (num % 15 === 0 && num % 3 === 0) {
-    return 'fizz buzz'
-} else if (num % 15 === 0 & num % 5 === 0) {
-    return 'fizz buzz'
-} else if (num % 15 === 0) {
-    return 'fizz buzz'
-} else if (num % 3 === 0) {
-    return 'fizz'
-} else if (num % 5 === 0) {
-    return 'buzz'
-}
+    if (num % 15 === 0 && num % 3 === 0) {
+        return 'fizz buzz'
+    } else if (num % 15 === 0 & num % 5 === 0) {
+        return 'fizz buzz'
+    } else if (num % 15 === 0) {
+        return 'fizz buzz'
+    } else if (num % 3 === 0) {
+        return 'fizz'
+    } else if (num % 5 === 0) {
+        return 'buzz'
+    }
 
 /* refresher, .concat() is used to merge two or more arrays
 or strings together.
@@ -224,32 +223,107 @@ addEventListener()
 
 /* Classes in JS
     Notes: Classes are the templates for creating functions.
-    Functions inside these classes are called methods. */
+    Functions inside these classes are called methods */
+
+        The constructor method will typically have parameters
+        like: 
+        constructor(height, weight, speed, size, name)
+
+        Make sure to write all the properties for your instances
+        like, 
+        this.height = height; 
+        this.weight = weight;
+    
 
     // Class declaration
 
-    class Rectangle {
-        // creating an instance of rectangle will require 2 
-        // arguments
-        constructor(height, width) {
-            this.height = height;
-            this.width = width;
+        class Rectangle {
+            // creating an instance of rectangle will require 2 
+            // arguments
+            constructor(height, width) {
+                this.height = height;
+                this.width = width;
+            }
         }
-    }
 
     // making a new rectangle, with 300 height, 100 width
-    const myRectangle = new Rectangle(300, 100)
-    console.log(myRectangle.height)
+        const myRectangle = new Rectangle(300, 100)
+        console.log(myRectangle.height)
 
     // Another example
-    class Ghost{
-        constructor(className, speed, color, startingPoint) {
-            this.className = className;
-            this.speed = speed;
-            this.color = color;
-            this.startingPoint = startingPoint;
+        class Ghost{
+            constructor(className, speed, color, startingPoint) {
+                this.className = className;
+                this.speed = speed;
+                this.color = color;
+                this.startingPoint = startingPoint;
+            }
         }
-    }
 
-    const blinky = new Ghost('Blinky', 300, 'blue', 4)
-    const bonky = new Ghost('Bonky', 200, 'red', 10)
+        const blinky = new Ghost('Blinky', 300, 'blue', 4)
+        const bonky = new Ghost('Bonky', 200, 'red', 10)
+
+        console.log(blinky.speed)
+
+/* HTTP 
+    Notes: HTTP is Hyper Text Transfer Protocol
+
+    Most web pages are made up of HTML, CSS and Javascript, sent 
+    to you via the internet
+    The internet is made up from a bunch of resources hosted on
+    different servers. Resources are any entities on the web 
+    including HTML files, style sheets, images and so on.
+
+    To access the content on the internet your browser must
+    ask these servers for the resources it needs, and display
+    these resources to you. This protocol of requests and 
+    responses enables you to view the page as it is.
+
+    HTTP is used to structure
+    - requests &&
+    - responses
+        over the internet
+
+    HTTP requires data to be transfered from one point to another
+    over the network. This transfer of resources happens by using
+    transmission transmission control protocol (TCP)
+
+        TCP - Manage different types of internet connections in 
+        which one device wants to send something to another.
+
+        HTTP - Command language that the devices must follow in
+        order to communicate.
+
+When you type a URL address e.g. www.google.com you are commanding
+it to open a TCP channel to the sites 
+Uniform Resource Locator (URL).
+In this situation your computer, the CLIENT is making the request, 
+to a URL belonging to a SERVER.
+Once the TCP connection is established, the client sends an HTTP 
+GET request to the server to retrieve the web page it should 
+display. The server then sends a response, the client says, we got
+it thank you :) After the server sends the response, it closes the
+TCP connection.
+
+If you open the website in the browser again or if your browser
+requests something from the server, a new connection is open which
+follows the same process.
+
+HTTP methods:
+- GET requests (called by the client)
+- POST requests
+- PUT requests
+- DELETE requests
+
+GET REQUEST:
+        After you type the URL in the browser, behind the scenes,
+        your browser will extract the HTTP part and recognise that
+        is the name of the protocol to use and take the domain
+        name e.g. www.google.com and ask the internet domain name
+        server to return an IP address. It then opens a connection
+        to the server at the address using the HTTP protocol as 
+        precified. It will inititiate a GET request to the server
+        which contains the IP address of the host and optionally
+        a data payload.
+            GET / HTTP/1.1
+            HOST: www.google.com
