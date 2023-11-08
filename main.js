@@ -8,6 +8,7 @@
 // Numbers divisible by 15 become fizz buzz.
 
     /* Here's how I would originally write the psueodocode in 
+    my head, with my first initial thoughts on the problem. 
     However, I realise that there are cases when the number
     is divisible by 15 and 3 (or 5) together, but the code 
     will stop executing after the first line of the if 
@@ -26,7 +27,9 @@
         }
 
 /* I changed the order of the if statement so that
-divisible by 15 and 3, and 15 and 5 are checked first */
+divisible by 15 and 3, and 15 and 5 are checked first because
+the if statement will stop executing after the first TRUE case.
+*/
 
 
     if (num % 15 === 0 && num % 3 === 0) {
